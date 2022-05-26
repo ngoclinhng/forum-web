@@ -1,10 +1,19 @@
+import React from 'react';
+import AppBar from './components/ui/AppBar';
+import MainContainer from './components/ui/MainContainer';
+import Container from './components/ui/Container';
+import ThreadList from './components/ui/ThreadList';
+
 function App() {
   return (
-    <div>
-      <header>
-        Pellentesque eu tincidunt tortor aliquam nulla facilisi cras fermentum, odio eu feugiat pretium, nibh ipsum consequat nisl, vel pretium lectus quam id leo in. Id diam vel quam elementum pulvinar?
-      </header>
-    </div>
+    <React.Fragment>
+      <AppBar />
+      <MainContainer>
+        <Container>
+          <ThreadList />
+        </Container>
+      </MainContainer>
+    </React.Fragment>
   );
 }
 

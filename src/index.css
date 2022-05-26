@@ -10,11 +10,22 @@ html {
 }
 
 :root {
-  --primary-text-color: rgb(40, 60, 70);
-  --secondary-text-color: rgb(135, 116, 87);
+  --primary-text-color: #050505;
+  --secondary-text-color: #65676B;
+  --link-text-color: #216FDB;
 
-  --background-color-default: rgb(255, 252, 249);
-  --background-color-paper: rgb(255, 255, 255);
+  --background-color-default: #F0F2F5;
+  --background-color-paper: #FFFFFF;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --appbar-height: 4rem;
+
+  --shadow-1: rgba(0, 0, 0, 0.1);
+  --shadow-2: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -24,7 +35,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   color: var(--primary-text-color);
   background-color: var(--background-color-default)
 }
