@@ -5,6 +5,7 @@ import MainContainer from './components/ui/MainContainer';
 import PopularThreads from './pages/PopularThreads';
 import NewThreads from './pages/NewThreads';
 import ThreadPage from './pages/ThreadPage';
+import CreateThread from './pages/CreateThread';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route path='/' element={<PopularThreads />} />
           <Route path='/new-threads' element={<NewThreads />} />
           <Route path='/new-threads/:cursor' element={<NewThreads />} />
+          <Route path='/threads/new' element={<CreateThread />} />
           <Route path='/threads/:id' element={<ThreadPage />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>

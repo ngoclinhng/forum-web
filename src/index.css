@@ -10,6 +10,11 @@ html {
 }
 
 :root {
+  --primary-color: #1877F2;
+  --negative-color: #FA383E;
+  --negative-background-color: rgb(253, 233, 236);
+  --negative-text-color: rgb(96, 16, 29);
+
   --primary-text-color: #050505;
   --secondary-text-color: #65676B;
   --link-text-color: #216FDB;
@@ -20,6 +25,7 @@ html {
   --divider-color: #DADDE1;
   --button-overlay-hover: rgba(0, 0, 0, 0.05);
   --button-overlay-active:  rgba(0, 0, 0, 0.10);
+  --text-field-background: #F0F2F5;
 
   --font-weight-light: 300;
   --font-weight-regular: 400;

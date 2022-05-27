@@ -17,6 +17,10 @@ const navItems = [
   {
     to: '/new-threads',
     title: 'New Threads'
+  },
+  {
+    to: '/threads/new',
+    title: 'Create thread'
   }
 ].map((item) => ({
   className: getLinkClassName,

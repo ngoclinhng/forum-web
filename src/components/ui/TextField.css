@@ -1,0 +1,74 @@
+.TextField__base {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.TextField__base--fullWidth {
+  width: 100%;
+}
+
+.TextField__root {
+  position: relative;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  justify-content: center;
+  background-color: var(--text-field-background);
+  color: var(--primary-text-color);
+  font-weight: var(--font-weight-regular);
+  font-family: inherit;
+  cursor: text;
+}
+
+.TextField__root::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  border-bottom: 2px solid var(--primary-color);
+  pointer-events: none;
+  transform: scaleX(0);
+  transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+.TextField--error {
+  background-color: var(--negative-background-color);
+  color: var(--negative-text-color);
+}
+
+.TextField--error::after {
+  border-color: var(--negative-color);
+}
+
+.TextField__textarea {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-width: 0;
+  height: auto;
+  font: inherit;
+  color: currentColor;
+  resize: none;
+}
+
+.TextField__textarea:focus {
+  outline: 0;
+}
+
+.TextField--fullWidth {
+  width: 100%;
+}
+
+.TextField--focused::after {
+  transform: scaleX(1);
+}
+
+.TextField__helperText {
+  margin: 0.4rem 0.8rem 0 0.8rem;
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+}
