@@ -9,7 +9,7 @@ export default function CreateThread() {
         fullWidth
         autoComplete='off'
         spellCheck='false'
-        rows={4}
+        minRows={4}
         placeholder='What this thread is all about?'
         helperText='Mattis molestie a, iaculis at erat pellentesque.'
       />
@@ -21,7 +21,7 @@ export default function CreateThread() {
         fullWidth
         autoComplete='off'
         spellCheck='false'
-        rows={4}
+        minRows={4}
         placeholder='What this thread is all about?'
         helperText='Mattis molestie a, iaculis at erat pellentesque.'
       />
@@ -31,7 +31,7 @@ export default function CreateThread() {
       <TextField
         autoComplete='off'
         spellCheck='false'
-        rows={4}
+        minRows={4}
         placeholder='What this thread is all about?'
         helperText='Mattis molestie a, iaculis at erat pellentesque.'
       />

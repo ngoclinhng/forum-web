@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
+import Textarea from 'react-textarea-autosize';
 import './TextField.css';
 
 function TextField({ fullWidth, error, helperText, ...rest }) {
@@ -17,7 +18,7 @@ function TextField({ fullWidth, error, helperText, ...rest }) {
         'TextField--focused': focused,
         'TextField--error': error
       })}>
-        <textarea
+        <Textarea
           className='TextField__textarea'
           onFocus={handleFocus}
           onBlur={handleBlur}
