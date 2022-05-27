@@ -1,6 +1,6 @@
 import React from 'react';
-import Paper from './ui/Paper';
-import CreateThreadForm from './ui/CreateThreadForm';
+import Paper from './ui/CreateThreadPaper';
+import CreateThreadForm from './CreateThreadForm';
 
 export default function CreateThread() {
   return (
