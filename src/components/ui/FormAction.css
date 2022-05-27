@@ -1,0 +1,10 @@
+.FormAction {
+  margin-top: 1.6rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.FormAction button:not(:last-child) {
+  margin-right: 0.8rem;
+}
