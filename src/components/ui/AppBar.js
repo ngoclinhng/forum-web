@@ -3,15 +3,15 @@ import './AppBar.css';
 
 function AppBar() {
   return (
-    <nav id='appbar'>
-      <ul className='appbar__list'>
-        <li className='appbar__item'>
-          <a href="" className='appbar__link'>
+    <nav id='AppBar'>
+      <ul className='AppBar__list'>
+        <li className='AppBar__item'>
+          <a href="" className='AppBar__link AppBar__link--active'>
             Popular Threads
           </a>
         </li>
-        <li className='appbar__item'>
-          <a href="" className='appbar__link'>
+        <li className='AppBar__item'>
+          <a href="" className='AppBar__link'>
             New Threads
           </a>
         </li>

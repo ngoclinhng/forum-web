@@ -1,5 +1,5 @@
-#appbar {
-  background-color: var(--background-color-paper);
+#AppBar {
+  background-color: #303846;
   height: var(--appbar-height);
   display: flex;
 
@@ -12,7 +12,9 @@
   box-shadow: 0 1px 2px var(--shadow-2);
 }
 
-.appbar__list {
+.AppBar__list {
+  margin: 0;
+  padding: 0;
   list-style: none;
   width: 100%;
   display: flex;
@@ -20,17 +22,21 @@
   align-items: center;
 }
 
-.appbar__item:not(:last-child) {
+.AppBar__item:not(:last-child) {
   margin-right: 2.4rem;
 }
 
-.appbar__link {
+.AppBar__link {
   font-size: 1.5rem;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-regular);
   text-decoration: none;
-  color: var(--primary-text-color);
+  color: var(--white-text-color);
 }
 
-.appbar__link:hover {
+.AppBar__link:hover {
   text-decoration: underline;
+}
+
+.AppBar__link--active {
+  font-weight: var(--font-weight-bold);
 }

@@ -1,25 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import formatDate from '../utils/formatDate';
+import Overlay from './Overlay';
+import './ThreadListItem.css';
 
-function ThreadListItem({ id, title, postCount }) {
+function ThreadListItem({ id, title, postCount, insertedAt }) {
+  const dateString = formatDate(insertedAt, "MMMM do, yyyy 'at' HH:mm a");
+
   return (
-    <div className='thread_list_item'>
-      <h6 className='thread_list_item__title'>
-        <a href='' className='thread_list_item__link'>
+    <li className='ThreadListItem'>
+      <a href='#' role='button' className='ThreadListItem__link'>
+        <h6 className='ThreadListItem__title'>
           {title}
-        </a>
-      </h6>
-      <span className='thread_list_item__caption'>
-        {postCount} posts &bull; date_time
-      </span>
-    </div>
+        </h6>
+        <span className='ThreadListItem__caption'>
+          {postCount} posts &bull; {dateString}
+        </span>
+        <Overlay />
+      </a>
+    </li>
   );
 }
 
 ThreadListItem.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  postCount: PropTypes.number.isRequired
+  postCount: PropTypes.number.isRequired,
+  insertedAt: PropTypes.string.isRequired
 };
 
 export default ThreadListItem;

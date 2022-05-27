@@ -1,0 +1,31 @@
+.ThreadListItem:not(:last-child) {
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.ThreadListItem__title {
+  font-size: 1.7rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-text-color);
+}
+
+.ThreadListItem__link {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+}
+
+.ThreadListItem__link:hover > .Overlay {
+  opacity: 1.0;
+}
+
+.ThreadListItem__link:active > .Overlay {
+  opacity: 1.0;
+  background-color: var(--button-overlay-active);
+}
+
+.ThreadListItem__caption {
+  font-size: 1.4rem;
+  color: var(--secondary-text-color);
+}

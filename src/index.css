@@ -13,9 +13,13 @@ html {
   --primary-text-color: #050505;
   --secondary-text-color: #65676B;
   --link-text-color: #216FDB;
+  --white-text-color: #FFFFFF;
 
   --background-color-default: #F0F2F5;
   --background-color-paper: #FFFFFF;
+  --divider-color: #DADDE1;
+  --button-overlay-hover: rgba(0, 0, 0, 0.05);
+  --button-overlay-active:  rgba(0, 0, 0, 0.10);
 
   --font-weight-light: 300;
   --font-weight-regular: 400;
