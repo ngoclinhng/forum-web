@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from './Container';
 import Paper from './Paper';
 import './NotFound.css';
 
