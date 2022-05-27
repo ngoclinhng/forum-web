@@ -15,6 +15,11 @@ html {
   --negative-background-color: rgb(253, 233, 236);
   --negative-text-color: rgb(96, 16, 29);
 
+  --button-secondary-background: #E4E6EB;
+  --button-secondary-text: #050505;
+  --button-primary-background: #1877F2;
+  --button-primary-text: #FFFFFF;
+
   --primary-text-color: #050505;
   --secondary-text-color: #65676B;
   --link-text-color: #216FDB;

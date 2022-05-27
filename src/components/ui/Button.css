@@ -1,0 +1,49 @@
+.Button__root {
+  position: relative;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.Button__root:disabled {
+  cursor: default;
+  pointer-events: none;
+  color: #BCC0C4;
+  background-color: #E4E6EB;
+}
+
+.Button__label {
+  width: 100%;
+  display: inherit;
+  align-items: inherit;
+  justify-content: inherit;
+}
+
+.Button__root:hover > .Overlay {
+  opacity: 1.0;
+}
+
+.Button__root:active > .Overlay {
+  opacity: 1.0;
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
+.Button--secondary {
+  background-color: var(--button-secondary-background);
+  color: var(--button-secondary-text);
+}
+
+.Button--primary {
+  background-color: var(--button-primary-background);
+  color: var(--button-primary-text);
+}
