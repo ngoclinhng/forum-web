@@ -1,0 +1,14 @@
+.NextPageLink__root {
+  padding: 0.8rem;
+}
+
+.NextPageLink__link {
+  text-decoration: none;
+  color: var(--primary-text-color);
+  font-size: 1.6rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.NextPageLink__link:hover {
+  text-decoration: underline;
+}

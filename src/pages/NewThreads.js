@@ -1,14 +1,13 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '../components/ui/Container';
-import PopularThreadList from '../components/ui/PopularThreads';
+import ThreadPage from '../components/ThreadPage';
 
 export default function NewThreads() {
   const { cursor } = useParams();
-  console.log('afterCursor: ', cursor);
   return (
     <Container>
-      <PopularThreadList />
+      <ThreadPage first={10} after={cursor} />
     </Container>
   );
 }
