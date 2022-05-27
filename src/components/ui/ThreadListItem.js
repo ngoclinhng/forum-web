@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import formatDate from '../utils/formatDate';
 import Overlay from './Overlay';
 import './ThreadListItem.css';
@@ -9,7 +10,11 @@ function ThreadListItem({ id, title, postCount, insertedAt }) {
 
   return (
     <li className='ThreadListItem'>
-      <a href='#' role='button' className='ThreadListItem__link'>
+      <Link
+        role='button'
+        to={`/threads/${id}`}
+        className='ThreadListItem__link'
+      >
         <h6 className='ThreadListItem__title'>
           {title}
         </h6>
@@ -17,7 +22,7 @@ function ThreadListItem({ id, title, postCount, insertedAt }) {
           {postCount} posts &bull; {dateString}
         </span>
         <Overlay />
-      </a>
+      </Link>
     </li>
   );
 }
