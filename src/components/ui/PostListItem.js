@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import formatDate from '../utils/formatDate';
 import './PostListItem.css';
 
-export default function PostListItem() {
+function PostListItem({ content, insertedAt}) {
+  const dateString = formatDate(insertedAt, "MMMM do, yyyy 'at' HH:mm a");
   return (
     <li className='PostListItem__Root'>
       <div className='PostListItem__Content'>
@@ -12,14 +15,24 @@ export default function PostListItem() {
               Anonymous
             </h6>
             <p className='PostListItem__What'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor rhoncus dolor purus non. Vitae et leo duis ut diam!
+              {content}
             </p>
           </div>
           <span className='PostListItem__Timestamp'>
-            February 17th, 2022 at 15:27 PM
+            {dateString}
           </span>
         </div>
       </div>
     </li>
   );
 }
+
+PostListItem.propTypes = {
+  content: PropTypes.string.isRequired,
+  insertedAt: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.instanceOf(Date)
+  ]).isRequired
+};
+
+export default PostListItem;
