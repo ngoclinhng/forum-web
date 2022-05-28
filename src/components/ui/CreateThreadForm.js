@@ -5,10 +5,18 @@ import FormTitle from './FormTitle';
 import FormAction from './FormAction';
 import TextField from './TextField';
 import Button from './Button';
+import Error from './Error';
 
 const TITLE_MAX_LENGHT = 140;
 
-function CreateThreadForm({ title, onChange, onSubmit, onCancel }) {
+function CreateThreadForm({
+  title,
+  onChange,
+  onSubmit,
+  onCancel,
+  loading,
+  error
+}) {
   const handleInputChange = (e) => {
     if (onChange) {
       onChange(e.target.value);
@@ -22,6 +30,8 @@ function CreateThreadForm({ title, onChange, onSubmit, onCancel }) {
       <FormTitle>
         Create new thread
       </FormTitle>
+
+      {error && <Error error={error} />}
 
       <TextField
         fullWidth
@@ -37,16 +47,17 @@ function CreateThreadForm({ title, onChange, onSubmit, onCancel }) {
       <FormAction>
         <Button
           color='secondary'
+          disabled={loading}
           onClick={onCancel}
         >
           Cancel
         </Button>
         <Button
           color='primary'
-          disabled={!title || isTitleTooLong}
+          disabled={loading || !title || isTitleTooLong}
           onClick={onSubmit}
         >
-          Save
+          {loading ? 'Saving...' : 'Save'}
         </Button>
       </FormAction>
     </Form>
@@ -57,7 +68,9 @@ CreateThreadForm.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func,
-  onCancel: PropTypes.func
+  onCancel: PropTypes.func,
+  loading: PropTypes.bool,
+  error: PropTypes.object
 };
 
 export default CreateThreadForm;

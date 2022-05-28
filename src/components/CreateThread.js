@@ -1,21 +1,37 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 import Paper from './ui/CreateThreadPaper';
 import CreateThreadForm from './ui/CreateThreadForm';
+import useCreateThread from './hooks/useCreateThread';
 
 export default function CreateThread() {
   const [title, setTitle] = React.useState('');
+  const navigate = useNavigate();
 
+  // Apollo mutation
+  const [createThread, { loading, error }] = useCreateThread();
+
+  // Same as hitting the back button
   const handleCancel = (e) => {
-    console.log('Handle cancle');
+    navigate(-1);
   };
 
   const handleSubmit = (e) => {
-    console.log('handle submit');
+    createThread({
+      variables: {
+        input: { title }
+      },
+      onCompleted: ({ createThread: { thread }}) => {
+        navigate(`/threads/${thread.id}`, { replace: true });
+      }
+    }).catch(err => {});;
   };
 
   return (
     <Paper>
       <CreateThreadForm
+        loading={loading}
+        error={error}
         title={title}
         onChange={setTitle}
         onCancel={handleCancel}

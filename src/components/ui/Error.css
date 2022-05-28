@@ -1,0 +1,20 @@
+.Error {
+  background-color: var(--negative-background-color);
+  color: var(--negative-text-color);
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+  border-radius: 0.8rem;
+}
+
+.Error__message {
+  font-weight: var(--font-weight-bold);
+}
+
+.Error > ul {
+  list-style: none;
+}
+
+.Error > ul > li > ul {
+  margin-top: 0.8rem;
+  padding-left: 3.2rem;
+}
