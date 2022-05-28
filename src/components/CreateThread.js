@@ -16,13 +16,18 @@ export default function CreateThread() {
     navigate(-1);
   };
 
+  // Handle completed
+  const goToThreadDetailsPage = ({ id }) => {
+    navigate(`/threads/${id}`, { replace: true });
+  };
+
   const handleSubmit = (e) => {
     createThread({
       variables: {
         input: { title }
       },
       onCompleted: ({ createThread: { thread }}) => {
-        navigate(`/threads/${thread.id}`, { replace: true });
+        goToThreadDetailsPage(thread);
       }
     }).catch(err => {});;
   };
