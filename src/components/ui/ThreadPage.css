@@ -1,5 +1,4 @@
 .ThreadPage__Header {
-  background-color: yellow;
   margin-bottom: 2.4rem;
 }
 
@@ -16,10 +15,6 @@
 
 .ThreadPage__FormContainer {
   max-width: 57.6rem;
-}
-
-.ThreadPage__FormButton {
-  margin-top: 1.6rem;
 }
 
 .ThreadPage__Posts {
