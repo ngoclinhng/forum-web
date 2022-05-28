@@ -1,0 +1,56 @@
+.PostListItem__Root:not(:last-child) {
+  margin-bottom: 0.8rem;
+}
+
+.PostListItem__Content {
+  display: flex;
+}
+
+.PostListItem__Avatar {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #BDBDBD;
+  margin-right: 1.2rem;
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+  font-size: 2.4rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.PostListItem__PostContainer {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.PostListItem__Post {
+  background-color: var(--post-background);
+  padding: 0.8rem 1.2rem;
+  border-radius: 2.4rem;
+}
+
+.PostListItem__Who {
+  font-size: 1.4rem;
+  line-height: 1.428571;
+  font-weight: var(--font-weight-bold);
+}
+
+.PostListItem__What {
+  font-size: 1.5rem;
+  line-height: 1.333333;
+  color: var(--primary-text-color);
+}
+
+.PostListItem__Timestamp {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+  display: block;
+  margin-left: 1.2rem;
+  padding: 0.4rem 0;
+}

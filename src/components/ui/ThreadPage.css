@@ -1,0 +1,29 @@
+.ThreadPage__Header {
+  background-color: yellow;
+  margin-bottom: 2.4rem;
+}
+
+.ThreadPage__Title {
+  font-size: 1.7rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--primary-text-color);
+}
+
+.ThreadPage__Subtitle {
+  font-size: 1.4rem;
+  color: var(--secondary-text-color);
+}
+
+.ThreadPage__FormContainer {
+  max-width: 57.6rem;
+}
+
+.ThreadPage__FormButton {
+  margin-top: 1.6rem;
+}
+
+.ThreadPage__Posts {
+  margin-top: 4rem;
+  border-top: 1px solid var(--divider-color);
+  padding-top: 24px;
+}

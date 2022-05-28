@@ -4,12 +4,12 @@ import clsx from 'clsx';
 import Overlay from './Overlay';
 import './Button.css';
 
-function Button({ color, children, disabled, ...rest }) {
+function Button({ color, children, disabled, className, ...rest }) {
   return (
     <button
       className={clsx('Button__root', {
         [`Button--${color}`]: !disabled
-      })}
+      }, className)}
       disabled={disabled}
       {...rest}
     >

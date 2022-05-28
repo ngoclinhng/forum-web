@@ -1,0 +1,6 @@
+.PostList {
+  background-color: var(--background-color-paper);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
