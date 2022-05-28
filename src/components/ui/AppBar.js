@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink as Link } from 'react-router-dom';
 import clsx from 'clsx';
 import './AppBar.css';
@@ -9,31 +10,13 @@ function getLinkClassName({ isActive }) {
   });
 }
 
-const navItems = [
-  {
-    to: '/',
-    title: 'Popular Threads'
-  },
-  {
-    to: '/new-threads',
-    title: 'New Threads'
-  },
-  {
-    to: '/threads/new',
-    title: 'Create thread'
-  }
-].map((item) => ({
-  className: getLinkClassName,
-  ...item
-}));
-
-function AppBar() {
+function AppBar({ navItems }) {
   return (
     <nav id='AppBar'>
       <ul className='AppBar__list'>
-        {navItems.map(({ to, title, className }) => (
+        {navItems.map(({ to, title }) => (
           <li key={title} className='AppBar__item'>
-            <Link to={to} className={className}>
+            <Link to={to} className={getLinkClassName}>
               {title}
             </Link>
           </li>
@@ -42,5 +25,12 @@ function AppBar() {
     </nav>
   );
 }
+
+AppBar.propTypes = {
+  navItems: PropTypes.arrayOf(PropTypes.shape({
+    to: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
+  })).isRequired
+};
 
 export default AppBar;

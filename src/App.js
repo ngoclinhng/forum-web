@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AppBar from './components/ui/AppBar';
+import AppBar from './components/AppBar';
 import MainContainer from './components/ui/MainContainer';
 import PopularThreads from './pages/PopularThreads';
 import NewThreads from './pages/NewThreads';
