@@ -13,3 +13,11 @@ export const THREAD_POST_COUNT = gql`
     postCount
   }
 `;
+
+export const POST_DETAILS = gql`
+  fragment PostDetails on Post {
+    id
+    content
+    insertedAt
+  }
+`;

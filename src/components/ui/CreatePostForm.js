@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import Form from './Form';
 import TextField from './TextField';
 import Button from './Button';
+import Error from './Error';
 import './CreatePostForm.css';
 
-function CreatePostForm({ data, onChange, onSubmit }) {
+function CreatePostForm({ data, onChange, onSubmit, loading, error }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -16,6 +17,7 @@ function CreatePostForm({ data, onChange, onSubmit }) {
 
   return (
     <Form>
+      {error && <Error error={error} />}
       <TextField
         fullWidth
         autoComplete='off'
@@ -30,8 +32,9 @@ function CreatePostForm({ data, onChange, onSubmit }) {
         color='primary'
         className='CreatePostForm__Button'
         onClick={onSubmit}
+        disabled={loading}
       >
-        Add post
+        {loading ? 'Saving...' : 'Add post'}
       </Button>
     </Form>
   );
@@ -42,7 +45,9 @@ CreatePostForm.propTypes = {
     content: PropTypes.string
   }),
   onChange: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  loading: PropTypes.bool,
+  error: PropTypes.object
 };
 
 CreatePostForm.defaultProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadPageHeader from './ui/ThreadPageHeader';
-import CreatePostForm from './ui/CreatePostForm';
+import CreatePostForm from './CreatePostForm';
 
 function ThreadDetailsWithData({ thread }) {
   const { id, title, postCount, insertedAt } = thread;
@@ -13,9 +13,7 @@ function ThreadDetailsWithData({ thread }) {
         postCount={postCount}
         insertedAt={insertedAt}
       />
-      <div className='ThreadPage__FormContainer'>
-        <CreatePostForm />
-      </div>
+      <CreatePostForm threadId={id} />
     </React.Fragment>
   );
 }
