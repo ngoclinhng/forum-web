@@ -24,6 +24,17 @@ function CreatePostForm({ threadId }) {
     createPost({
       variables: {
         input: { threadId, content: data.content }
+      },
+      optimisticResponse: {
+        createPost: {
+          __typename: 'CreatePostPayload',
+          post: {
+            __typename: 'Post',
+            id: 'new_post_id',
+            content: data.content,
+            insertedAt: (new Date()).toISOString()
+          }
+        }
       }
     }).catch((err) => {});  // we've already handled error
   };
