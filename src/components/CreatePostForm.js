@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Form from './ui/CreatePostForm';
 import useCreatePost from './hooks/useCreatePost';
+import { incrementThreadPostCount } from './cache';
 
 function CreatePostForm({ threadId }) {
   const [data, setData] = React.useState({ content: '' });
@@ -11,6 +12,7 @@ function CreatePostForm({ threadId }) {
   const [createPost, { loading, error }] = useCreatePost({
     update: (cache, { data: { createPost: { post }}}) => {
       console.log('update cache: ', post);
+      incrementThreadPostCount(cache, threadId);
     },
     onCompleted: ({ createPost: { post }}) => {
       console.log('completed: ', post);
