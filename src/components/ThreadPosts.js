@@ -2,21 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import PostsQuery from './PostsQuery';
 import ThreadPostsWithData from './ThreadPostsWithData';
-
-const NUM_POST_PER_PAGE = 10;
+import { NUM_POST_PER_PAGE } from './constants';
 
 function ThreadPosts({ id }) {
-  const [cursor, setCursor] = React.useState(null);
   return (
     <PostsQuery
       threadId={id}
       first={NUM_POST_PER_PAGE}
-      after={cursor}
     >
-      {(postConnection) => (
+      {(postConnection, { fetchMore }) => (
         <ThreadPostsWithData
           postConnection={postConnection}
-          onNextPage={setCursor}
+          fetchMore={fetchMore}
         />
       )}
     </PostsQuery>

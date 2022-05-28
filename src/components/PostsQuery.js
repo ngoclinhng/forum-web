@@ -46,3 +46,4 @@ PostsQuery.propTypes = {
 };
 
 export default PostsQuery;
+export { POSTS_QUERY };

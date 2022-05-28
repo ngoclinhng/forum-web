@@ -1,0 +1,20 @@
+.MoreButton {
+  position: relative;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--secondary-text-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.6rem;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.MoreButton:hover {
+  text-decoration: underline;
+}

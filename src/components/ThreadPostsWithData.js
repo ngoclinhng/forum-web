@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import PostList from './PostList';
+import MoreButton from './ui/MoreButton';
 
-function ThreadPostsWithData({ postConnection, onNextPage }) {
+function ThreadPostsWithData({ postConnection, fetchMore }) {
   const { edges, pageInfo } = postConnection;
   const { hasNextPage, endCursor } = pageInfo;
   const posts = edges.map(({ node }) => node );
@@ -13,18 +14,19 @@ function ThreadPostsWithData({ postConnection, onNextPage }) {
   }
 
   const handleNextPage = (e) => {
-    if (onNextPage) {
-      onNextPage(endCursor);
-    }
+    fetchMore({
+      variables: { after: endCursor }
+    });
   };
 
   return (
     <div className='ThreadPage__Posts'>
       <PostList posts={posts} />
       {hasNextPage && (
-        <button onClick={handleNextPage}>
-          More...
-        </button>
+        <MoreButton
+          label='Load more posts...'
+          onClick={handleNextPage}
+        />
       )}
     </div>
   );
@@ -37,7 +39,9 @@ ThreadPostsWithData.propTypes = {
       hasNextPage: PropTypes.bool.isRequired,
       endCursor: PropTypes.string
     }).isRequired
-  }).isRequired
+  }).isRequired,
+
+  fetchMore: PropTypes.func.isRequired
 };
 
 export default ThreadPostsWithData;
