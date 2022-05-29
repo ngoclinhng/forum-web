@@ -4,15 +4,15 @@ import StyledAppBar from './ui/AppBar';
 const navItems = [
   {
     to: '/',
-    title: 'Popular Threads'
+    title: 'Popular'
   },
   {
-    to: '/new-threads',
-    title: 'New Threads'
+    to: '/threads',
+    title: 'Threads'
   },
   {
     to: '/threads/new',
-    title: 'Create thread'
+    title: 'Create Thread'
   }
 ];
 

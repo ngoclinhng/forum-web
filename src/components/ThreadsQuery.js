@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { gql, useQuery } from '@apollo/client';
 import { THREAD_DETAILS, THREAD_POST_COUNT } from './fragments';
+import Error from './ui/Error';
 
-const THREAD_PAGE_QUERY = gql`
+const THREADS_QUERY = gql`
   query GetThreadPage($first: Int!, $after: String) {
     threads(first: $first, after: $after) {
       edges {
@@ -23,26 +24,27 @@ const THREAD_PAGE_QUERY = gql`
 `;
 
 
-function ThreadPageQuery({ first, after, children, ...otherQueryProps }) {
+function ThreadsQuery({ first, after, children, ...otherQueryProps }) {
   const {
     loading,
     error,
     data,
     ...otherQueryResults
-  } = useQuery(THREAD_PAGE_QUERY, {
+  } = useQuery(THREADS_QUERY, {
     variables: { first, after },
     ...otherQueryProps
   });
 
   if (loading) return 'Loading...';
-  if (error) return 'Error!';
+  if (error) return <Error error={error} />;
   return children(data.threads, otherQueryResults);
 }
 
-ThreadPageQuery.propTypes = {
+ThreadsQuery.propTypes = {
   first: PropTypes.number.isRequired,
   after: PropTypes.string,
   children: PropTypes.func.isRequired
 };
 
-export default ThreadPageQuery;
+export default ThreadsQuery;
+export { THREADS_QUERY };

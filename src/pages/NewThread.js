@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from '../components/ui/Container';
-import NotFound from '../components/ui/NotFound';
+import CreateThreadForm from '../components/CreateThread';
 
-export default function PageNotFound() {
+export default function NewThread() {
   return (
     <Container>
-      <NotFound />
+      <CreateThreadForm />
     </Container>
   );
 }

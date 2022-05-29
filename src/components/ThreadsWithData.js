@@ -1,24 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from './ui/NextPageLink';
+import MoreButton from './ui/MoreButton';
 import ThreadList from './ThreadList';
 
-function ThreadPageWithData({ threadConnection }) {
+function ThreadsWithData({ threadConnection, fetchMore }) {
   const { edges, pageInfo } = threadConnection;
   const { hasNextPage, endCursor } = pageInfo;
   const threads = edges.map(({ node}) => node);
+
+  const handleNextPage = (e) => {
+    fetchMore({
+      variables: { after: endCursor }
+    });
+  };
 
   return (
     <div>
       <ThreadList threads={threads} />
       {hasNextPage && (
-        <Link to={`/new-threads/${endCursor}`} />
+        <MoreButton
+          label='Load more thread...'
+          onClick={handleNextPage}
+        />
       )}
     </div>
   );
 }
 
-ThreadPageWithData.propTypes = {
+ThreadsWithData.propTypes = {
   threadConnection: PropTypes.shape({
     edges: PropTypes.arrayOf(PropTypes.shape({
       node: PropTypes.object.isRequired
@@ -27,7 +36,8 @@ ThreadPageWithData.propTypes = {
       hasNextPage: PropTypes.bool.isRequired,
       endCursor: PropTypes.string
     }).isRequired
-  }).isRequired
+  }).isRequired,
+  fetchMore: PropTypes.func.isRequired
 };
 
-export default ThreadPageWithData;
+export default ThreadsWithData;

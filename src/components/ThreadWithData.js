@@ -4,7 +4,7 @@ import ThreadPageHeader from './ui/ThreadPageHeader';
 import CreatePostForm from './CreatePostForm';
 import ThreadPosts from './ThreadPosts';
 
-function ThreadDetailsWithData({ thread }) {
+function ThreadWithData({ thread }) {
   const { id, title, postCount, insertedAt } = thread;
 
   return (
@@ -20,7 +20,7 @@ function ThreadDetailsWithData({ thread }) {
   );
 }
 
-ThreadDetailsWithData.propTypes = {
+ThreadWithData.propTypes = {
   thread: PropTypes.shape({
     __typename: PropTypes.oneOf(['Thread']).isRequired,
     id: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ ThreadDetailsWithData.propTypes = {
   }).isRequired
 };
 
-export default ThreadDetailsWithData;
+export default ThreadWithData;

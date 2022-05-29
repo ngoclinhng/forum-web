@@ -1,11 +1,11 @@
 import React from 'react';
 import Container from '../components/ui/Container';
-import CreateThreadForm from '../components/CreateThread';
+import StyledNotFound from '../components/ui/NotFound';
 
-export default function CreateThread() {
+export default function NotFound() {
   return (
     <Container>
-      <CreateThreadForm />
+      <StyledNotFound />
     </Container>
   );
 }

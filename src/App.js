@@ -3,10 +3,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppBar from './components/AppBar';
 import MainContainer from './components/ui/MainContainer';
 import PopularThreads from './pages/PopularThreads';
-import NewThreads from './pages/NewThreads';
-import ThreadPage from './pages/ThreadPage';
-import CreateThread from './pages/CreateThread';
-import PageNotFound from './pages/PageNotFound';
+import Threads from './pages/Threads';
+import Thread from './pages/Thread';
+import NewThread from './pages/NewThread';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -15,11 +15,10 @@ function App() {
       <MainContainer>
         <Routes>
           <Route path='/' element={<PopularThreads />} />
-          <Route path='/new-threads' element={<NewThreads />} />
-          <Route path='/new-threads/:cursor' element={<NewThreads />} />
-          <Route path='/threads/new' element={<CreateThread />} />
-          <Route path='/threads/:id' element={<ThreadPage />} />
-          <Route path='*' element={<PageNotFound />} />
+          <Route path='/threads' element={<Threads />} />
+          <Route path='/threads/:id' element={<Thread />} />
+          <Route path='/threads/new' element={<NewThread />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </MainContainer>
     </BrowserRouter>

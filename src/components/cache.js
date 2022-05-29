@@ -1,6 +1,7 @@
 import { THREAD_POST_COUNT } from './fragments';
 import { POSTS_QUERY } from './PostsQuery';
-import { NUM_POST_PER_PAGE } from './constants';
+import { THREADS_QUERY } from './ThreadsQuery';
+import { NUM_POST_PER_PAGE, NUM_THREAD_PER_PAGE } from './constants';
 
 // TODO: handle error, exception, etc...
 export function incrementThreadPostCount(cache, threadId) {
@@ -52,6 +53,14 @@ export function insertPost(cache, { threadId, post }) {
       }
     }
   });
+}
+
+export function insertThread(cache, thread) {
+  const data = cache.readQuery({
+    query: THREADS_QUERY,
+    variables: { first: NUM_THREAD_PER_PAGE }
+  });
+  console.log(data);
 }
 
 // Helpers.

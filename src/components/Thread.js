@@ -2,22 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import StyledThreadDetails from './ui/ThreadPage';
 import ThreadQuery from './ThreadQuery';
-import ThreadDetailsWithData from './ThreadDetailsWithData';
+import ThreadWithData from './ThreadWithData';
 
-function ThreadDetails({ id }) {
+function Thread({ id }) {
   return (
     <StyledThreadDetails>
       <ThreadQuery id={id}>
         {(thread) => (
-          <ThreadDetailsWithData thread={thread} />
+          <ThreadWithData thread={thread} />
         )}
       </ThreadQuery>
     </StyledThreadDetails>
   );
 }
 
-ThreadDetails.propTypes = {
+Thread.propTypes = {
   id: PropTypes.string.isRequired
 };
 
-export default ThreadDetails;
+export default Thread;

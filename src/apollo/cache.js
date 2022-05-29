@@ -7,6 +7,11 @@ const cache = new InMemoryCache({
       fields: {
         posts: relayStylePagination()
       }
+    },
+    Query: {
+      fields: {
+        threads: relayStylePagination()
+      }
     }
   }
 });
