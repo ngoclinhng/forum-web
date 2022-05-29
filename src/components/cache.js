@@ -23,11 +23,12 @@ export function incrementThreadPostCount(cache, threadId) {
 }
 
 export function insertPost(cache, { threadId, post }) {
-  const { node: threadNode } = cache.readQuery({
+  const query = {
     query: POSTS_QUERY,
     variables: { threadId, first: NUM_POST_PER_PAGE}
-  });
+  };
 
+  const { node: threadNode } = cache.readQuery(query);
   const oldPosts = threadNode.posts;
   const oldEdges = oldPosts.edges;
 
@@ -35,7 +36,7 @@ export function insertPost(cache, { threadId, post }) {
   const found = oldEdges.some(({ node }) => node.id === post.id );
 
   if (!found) {
-    newEdges = [constructPostEdgeFromPost(post), ...oldEdges]
+    newEdges = [constructPostEdge(post), ...oldEdges]
   }
 
   const newPosts = {
@@ -44,8 +45,7 @@ export function insertPost(cache, { threadId, post }) {
   };
 
   cache.writeQuery({
-    query: POSTS_QUERY,
-    variables: { threadId, first: NUM_POST_PER_PAGE},
+    ...query,
     data: {
       node: {
         ...threadNode,
@@ -56,18 +56,45 @@ export function insertPost(cache, { threadId, post }) {
 }
 
 export function insertThread(cache, thread) {
-  const data = cache.readQuery({
+  const query = {
     query: THREADS_QUERY,
     variables: { first: NUM_THREAD_PER_PAGE }
+  };
+
+  const data = cache.readQuery(query);
+  if (!data) { return; }
+
+  const oldEdges = data.threads.edges;
+  const found = oldEdges.some(({ node }) => node.id === thread.id);
+  let newEdges = oldEdges;
+
+  if (!found) {
+    newEdges = [constructThreadEdge(thread), ...oldEdges];
+  }
+
+  cache.writeQuery({
+    ...query,
+    data: {
+      threads: {
+        ...data.threads,
+        edges: newEdges
+      }
+    }
   });
-  console.log(data);
 }
 
 // Helpers.
 
-function constructPostEdgeFromPost(post) {
+function constructPostEdge(post) {
   return {
     __typename: 'PostEdge',
     node: post
+  };
+}
+
+function constructThreadEdge(thread) {
+  return {
+    __typename: 'ThreadEdge',
+    node: thread
   };
 }

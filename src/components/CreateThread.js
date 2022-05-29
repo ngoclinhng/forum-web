@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Paper from './ui/CreateThreadPaper';
 import CreateThreadForm from './ui/CreateThreadForm';
 import useCreateThread from './hooks/useCreateThread';
+import { insertThread } from './cache';
 
 export default function CreateThread() {
   const [title, setTitle] = React.useState('');
@@ -25,6 +26,9 @@ export default function CreateThread() {
     createThread({
       variables: {
         input: { title }
+      },
+      update: (cache, { data: { createThread: { thread }}}) => {
+        insertThread(cache, thread);
       },
       onCompleted: ({ createThread: { thread }}) => {
         goToThreadDetailsPage(thread);
