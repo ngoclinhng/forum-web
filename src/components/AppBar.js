@@ -8,7 +8,8 @@ const navItems = [
   },
   {
     to: '/threads',
-    title: 'Threads'
+    title: 'Threads',
+    end: true
   },
   {
     to: '/threads/new',

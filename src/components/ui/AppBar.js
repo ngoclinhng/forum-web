@@ -14,9 +14,9 @@ function AppBar({ navItems }) {
   return (
     <nav id='AppBar'>
       <ul className='AppBar__list'>
-        {navItems.map(({ to, title }) => (
+        {navItems.map(({ to, title, ...rest }) => (
           <li key={title} className='AppBar__item'>
-            <Link to={to} className={getLinkClassName}>
+            <Link to={to} className={getLinkClassName} {...rest}>
               {title}
             </Link>
           </li>
